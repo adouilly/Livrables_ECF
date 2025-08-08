@@ -1,0 +1,247 @@
+/* ========================================
+   COMPORTEMENT SCROLL - VINTAGE BARBER SHOP v1 FINALE  
+   Header rétractable fluide + bouton retour haut (tous formats)
+   
+   ✅ FONCTIONNALITÉS FINALISÉES :
+   - Header rétractable responsive selon breakpoints
+   - Bouton scroll-to-top avec apparition automatique
+   - Transitions fluides 60fps optimisées
+   - Navigation toujours accessible
+   ======================================== */
+
+/* Import des variables */
+@import url('../common/variables.css');
+
+/* Variables CSS pour le système de retrait */
+:root {
+    --header-retract-mobile: -255px;    /* 260px - 5px = 255px */
+    --header-retract-tablet: -275px;    /* 280px - 5px = 275px */
+    --header-retract-desktop: -295px;   /* 300px - 5px = 295px */
+    --header-visible-height: 5px; /* Seulement 5px visibles */
+    --header-retract-opacity: 0.25;
+    --header-glow-color: #4a9eff;
+    --header-transition-duration: 0.4s;
+}
+
+/* ========================================
+   HEADER RÉTRACTABLE AU SCROLL (TOUS FORMATS)
+   ======================================== */
+
+/* Transition fluide pour le header */
+.header {
+    transition: transform var(--header-transition-duration) cubic-bezier(0.4, 0, 0.2, 1),
+                opacity var(--header-transition-duration) ease-in-out,
+                box-shadow var(--header-transition-duration) ease-in-out;
+}
+
+/* État : Header rétracté au scroll vers le bas - MOBILE */
+@media (max-width: 767px) {
+    .header.header--retracted {
+        transform: translateY(var(--header-retract-mobile));
+        opacity: var(--header-retract-opacity);
+        box-shadow: 0 4px 12px rgba(74, 158, 255, 0.6),
+                    0 0 20px rgba(74, 158, 255, 0.4);
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .header.header--retracted:hover {
+        opacity: 0.4;
+        box-shadow: 0 6px 16px rgba(74, 158, 255, 0.8),
+                    0 0 25px rgba(74, 158, 255, 0.6);
+        transform: translateY(calc(var(--header-retract-mobile) + 5px));
+    }
+}
+
+/* État : Header rétracté au scroll vers le bas - TABLETTE */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .header.header--retracted {
+        transform: translateY(var(--header-retract-tablet));
+        opacity: var(--header-retract-opacity);
+        box-shadow: 0 4px 12px rgba(74, 158, 255, 0.6),
+                    0 0 20px rgba(74, 158, 255, 0.4);
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .header.header--retracted:hover {
+        opacity: 0.4;
+        box-shadow: 0 6px 16px rgba(74, 158, 255, 0.8),
+                    0 0 25px rgba(74, 158, 255, 0.6);
+        transform: translateY(calc(var(--header-retract-tablet) + 5px));
+    }
+}
+
+/* État : Header rétracté au scroll vers le bas - DESKTOP */
+@media (min-width: 1200px) {
+    .header.header--retracted {
+        transform: translateY(var(--header-retract-desktop));
+        opacity: var(--header-retract-opacity);
+        box-shadow: 0 4px 12px rgba(74, 158, 255, 0.6),
+                    0 0 20px rgba(74, 158, 255, 0.4);
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .header.header--retracted:hover {
+        opacity: 0.4;
+        box-shadow: 0 6px 16px rgba(74, 158, 255, 0.8),
+                    0 0 25px rgba(74, 158, 255, 0.6);
+        transform: translateY(calc(var(--header-retract-desktop) + 5px));
+    }
+}
+
+/* Assure que la partie navigation reste toujours accessible */
+.header.header--retracted .header__nav {
+    position: relative;
+    z-index: 1002;
+}
+
+/* ========================================
+   BOUTON RETOUR EN HAUT DE PAGE
+   ======================================== */
+
+.bouton-retour-haut {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-secondary); /* Bleu */
+    border: 2px solid var(--color-primary); /* Contour jaune discret */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9998; /* Juste en dessous de la tondeuse */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* État visible du bouton */
+.bouton-retour-haut.bouton-retour-haut--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Flèche du bouton retour en haut */
+/* Flèche du bouton retour en haut orientée vers le haut */
+.scroll-top-btn__arrow {
+    width: 18px;
+    height: 18px;
+    border-left: 4px solid var(--color-primary, #b89f68);
+    border-bottom: 4px solid var(--color-primary, #b89f68);
+    transform: rotate(135deg); /* Correction : flèche vers le haut (180° depuis bas) */
+    margin: 0 auto;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    background: none;
+}
+
+/* Effet hover discret */
+.bouton-retour-haut:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   ICÔNE FLÈCHE VERS LE HAUT
+   ======================================== */
+
+.bouton-retour-haut__fleche {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid var(--color-primary); /* Pointe jaune */
+    position: relative;
+}
+
+/* Petite tige de la flèche */
+.bouton-retour-haut__fleche::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 8px;
+    background-color: var(--color-primary); /* Tige jaune */
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+
+/* Mobile uniquement : bouton plus petit et repositionné */
+@media (max-width: 767px) {
+    .bouton-retour-haut {
+        width: 25px; /* Divisé par 2 (50px / 2) */
+        height: 25px; /* Divisé par 2 (50px / 2) */
+        bottom: 70px; /* Remonté de 50px (20px + 50px) */
+        right: 20px;
+    }
+    
+    .bouton-retour-haut__fleche {
+        border-left: 4px solid transparent; /* Réduit proportionnellement */
+        border-right: 4px solid transparent; /* Réduit proportionnellement */
+        border-bottom: 6px solid var(--color-primary); /* Réduit proportionnellement */
+    }
+    
+    .bouton-retour-haut__fleche::after {
+        width: 2px; /* Réduit proportionnellement */
+        height: 5px; /* Réduit proportionnellement */
+        bottom: -5px; /* Ajusté proportionnellement */
+    }
+}
+
+/* ========================================
+   RESPONSIVE - DESKTOP/TABLETTE
+   ======================================== */
+
+/* Sur desktop/tablette : bouton légèrement plus grand et repositionné */
+@media (min-width: 768px) {
+    .bouton-retour-haut {
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+    }
+    
+    .bouton-retour-haut__fleche {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 14px solid var(--color-primary);
+    }
+    
+    .bouton-retour-haut__fleche::after {
+        width: 4px;
+        height: 10px;
+        bottom: -10px;
+    }
+}
+
+/* ========================================
+   ANIMATION D'APPARITION
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animation d'apparition pour le bouton */
+.bouton-retour-haut.bouton-retour-haut--visible {
+    animation: fadeInUp 0.4s ease-out;
+}

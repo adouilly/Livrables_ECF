@@ -1,0 +1,421 @@
+/* ========================================
+   HEADER FRONT - VINTAGE BARBER SHOP
+   ======================================== */
+
+/* Import des variables */
+@import url('../common/variables.css');
+
+/* ========================================
+   HEADER PRINCIPAL
+   ======================================== */
+
+.header {
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 10px 0; /* Padding 10px comme demandé */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Mobile-first : disposition VERTICALE */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* Mobile-first values - logo démarre à 50px du haut */
+    padding: 50px 15px 10px 15px; /* 50px top pour positionner le logo, 10px bottom comme avant */
+    height: 260px; /* 160px + 100px = 260px */
+    gap: 5px;
+    /* Stabilisation pendant animations externes */
+    will-change: auto;
+    transform: translate3d(0, 0, 0); /* Force hardware acceleration */
+    backface-visibility: hidden; /* Évite les problèmes de rendu */
+    position: relative; /* Crée un contexte de stacking */
+}
+
+/* ========================================
+   PARTIE 1 : LOGO (HAUT en mobile)
+   ======================================== */
+
+.header__logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Mobile-first : section en haut */
+    flex: 0 0 auto;
+    order: 1; /* Premier élément en mobile */
+    /* Stabilisation pendant animations externes */
+    will-change: auto;
+    transform: translate3d(0, 0, 0); /* Force hardware acceleration */
+    backface-visibility: hidden; /* Évite les problèmes de rendu */
+}
+
+.header__logo-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.header__logo-link:hover {
+    transform: scale(1.05);
+}
+
+.header__logo-img {
+    /* Mobile-first values - ajustés pour disposition verticale */
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-primary); /* Contour jaune */
+    border-radius: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ========================================
+   PARTIE 2 : TITRE DU SITE (CENTRE en mobile)
+   ======================================== */
+
+.header__title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Mobile-first : section au centre */
+    flex: 1;
+    order: 2; /* Deuxième élément en mobile */
+    /* Stabilisation pendant animations externes */
+    will-change: auto;
+    transform: translate3d(0, 0, 0); /* Force hardware acceleration */
+    backface-visibility: hidden; /* Évite les problèmes de rendu */
+}
+
+.header__site-title {
+    font-family: var(--font-principal);
+    /* Mobile-first values - ajustés pour disposition verticale */
+    font-size: 1.4rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header__site-subtitle {
+    font-family: var(--font-secondary);
+    /* Mobile-first values - ajustés pour disposition verticale */
+    font-size: 0.8rem;
+    color: var(--color-white);
+    margin-top: 2px;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   PARTIE 3 : NAVIGATION (BAS en mobile)
+   ======================================== */
+
+.header__nav-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Mobile-first : section en bas */
+    flex: 0 0 auto;
+    order: 3; /* Troisième élément en mobile */
+}
+
+/* ========================================
+   MENU BURGER (VERSION INITIALE)
+   ======================================== */
+
+.header__burger-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__burger-btn {
+    background-color: var(--color-primary); /* Background jaune */
+    border: none;
+    border-radius: 25px;
+    /* Mobile-first values - ajustés pour tondeuse verticale */
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: breathe 3s ease-in-out infinite;
+}
+
+.header__burger-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(254, 230, 144, 0.5);
+    animation: none; /* Stop animation on hover */
+}
+
+.header__burger-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+}
+
+.header__burger-btn:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(254, 230, 144, 0.2);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(254, 230, 144, 0.3);
+    }
+}
+
+.header__burger-img {
+    /* Mobile-first values - TAILLE NORMALE du menu burger */
+    width: 50px; /* Retour à la taille normale */
+    height: 50px; /* Retour à la taille normale */
+    display: block;
+    transform: rotate(-90deg); /* Rotation -90° pour mobile */
+    transition: transform 0.5s ease;
+}
+
+/* ========================================
+   NAVIGATION VISIBLE (APRÈS ANIMATION)
+   ======================================== */
+
+.header__nav {
+    display: none; /* Masqué par défaut, sera affiché après animation */
+    opacity: 0;
+    /* Animation horizontale normale */
+    transform: translateX(50px);
+    transition: all 0.5s ease;
+}
+
+.header__nav.is-visible {
+    display: flex;
+    opacity: 1;
+    /* Animation horizontale normale */
+    transform: translateX(0);
+}
+
+.header__nav-list {
+    display: flex;
+    flex-direction: column; /* Navigation verticale */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center; /* Centrage vertical des éléments */
+    /* Mobile-first values - ajustés pour disposition verticale */
+    height: 120px; /* Hauteur réduite pour disposition verticale */
+    gap: 6px;
+}
+
+.header__nav-item {
+    margin: 0;
+}
+
+.header__nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--color-black);
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+    /* Mobile-first values - ajustés pour disposition verticale */
+    width: 160px;
+    height: 16px;
+    padding: 8px 8px;
+    font-size: 12px;
+}
+
+/* Couleurs spécifiques selon consignes */
+.header__nav-link--services,
+.header__nav-link--gallery {
+    background-color: var(--color-primary); /* Jaune pour Services et Galerie */
+}
+
+.header__nav-link--contact {
+    background-color: var(--color-secondary); /* Bleu pour Contact */
+}
+
+.header__nav-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE FIRST APPROACH
+   Breakpoints selon consignes: 360px, 768px, 1200px+
+   MOBILE: disposition VERTICALE avec tondeuse rotée -90°
+   TABLETTE/DESKTOP: disposition HORIZONTALE normale
+   ======================================== */
+
+/* TABLETTE (768px) - Retour à la disposition HORIZONTALE */
+@media (min-width: 768px) {
+    .header__container {
+        /* Retour à la disposition horizontale */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        height: 280px; /* 180px + 100px = 280px */
+        gap: 15px;
+    }
+    
+    .header__logo-section {
+        order: unset;
+        justify-content: flex-start;
+    }
+    
+    .header__title-section {
+        order: unset;
+    }
+    
+    .header__nav-section {
+        order: unset;
+        justify-content: flex-end;
+    }
+    
+    .header__logo-img {
+        width: 130px;
+        height: 130px;
+        border-width: 4px;
+    }
+    
+    .header__site-title {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .header__site-subtitle {
+        font-size: 1.1rem;
+        margin-top: 5px;
+    }
+    
+    .header__burger-btn {
+        padding: 5px;
+    }
+    
+    .header__burger-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .header__nav {
+        /* Animation horizontale normale pour tablette */
+        transform: translateX(50px);
+    }
+    
+    .header__nav.is-visible {
+        transform: translateX(0);
+    }
+    
+    .header__nav-list {
+        height: 130px; /* Même hauteur que le logo tablette */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        gap: 0;
+    }
+    
+    .header__nav-link {
+        width: 220px;
+        min-height: 22px;
+        font-size: 15px;
+        padding: 15px 10px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* DESKTOP (1200px+) */
+@media (min-width: 1200px) {
+    .header__container {
+        /* Même disposition horizontale qu'en tablette */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        height: 300px; /* 200px + 100px = 300px */
+        gap: 20px;
+    }
+    
+    .header__logo-img {
+        width: 160px;
+        height: 160px;
+        border-width: 5px;
+    }
+    
+    .header__site-title {
+        font-size: 2.8rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .header__site-subtitle {
+        font-size: 1.3rem;
+        margin-top: 6px;
+    }
+    
+    .header__burger-btn {
+        padding: 5px;
+    }
+    
+    .header__burger-img {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .header__nav-list {
+        height: 160px; /* Même hauteur que le logo desktop */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        gap: 0;
+    }
+    
+    .header__nav-link {
+        width: 245px;
+        min-height: 25px;
+        font-size: 16px;
+        padding: 18px 10px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

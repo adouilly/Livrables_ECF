@@ -1,0 +1,50 @@
+/* ========================================
+   UPLOAD SYSTEM - Styles upload admin
+   Extrait de back.css pour modularisation
+   ======================================== */
+
+/* Preview temporaire */
+.temp-preview {
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.temp-preview h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.temp-preview__frame {
+    max-width: 400px;
+    margin: 0 auto 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.temp-preview__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.temp-preview__info p {
+    margin: 8px 0;
+}
+
+.temp-preview__info .success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.temp-preview__info .error {
+    color: #dc3545;
+    font-weight: bold;
+}
+/* Système d’upload, preview, drag & drop, file input */
+@import url('../common/variables.css');
+
+/* ... Place ici le code upload extrait de back.css/back-content.css ... */

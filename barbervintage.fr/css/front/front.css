@@ -1,0 +1,43 @@
+/* ========================================
+   FRONT CSS - VINTAGE BARBER SHOP v1 FINALE
+   Styles généraux pour la partie front-office
+   Organisation modulaire par features et sections
+   ======================================== */
+
+/* Import des variables communes */
+@import url('../common/variables.css');
+
+/* Import des features comportementales */
+@import url('../features/mobile-scroll-behavior.css');
+@import url('../features/tondeuse-animation.css');
+
+/* Import des sections front-office */
+@import url('./header.css');
+@import url('./hero.css');
+@import url('./services.css');
+@import url('./gallery.css');
+@import url('./contact.css');
+@import url('./footer.css');
+@import url('./mentionlegales.css');
+
+/* ========================================
+   STYLES GÉNÉRAUX FRONT-OFFICE
+   Layout principal et comportements globaux
+   ======================================== */
+
+/* Container principal sans espaces entre sections */
+.main-content {
+    margin: 0;
+    padding: 0;
+}
+
+/* Suppression des marges par défaut entre sections */
+section {
+    margin: 0;
+}
+
+/* Hero et sections collées pour design fluide */
+.hero,
+.services {
+    margin-bottom: 0;
+}

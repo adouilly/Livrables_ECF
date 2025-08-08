@@ -1,0 +1,88 @@
+/* ========================================
+   VARIABLES CSS - VINTAGE BARBER SHOP
+   ======================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kings&family=Yatra+One&family=Grenze+Gotisch:wght@400;700&family=Roboto:wght@300;400;500;700&family=Nabla&display=swap');
+
+/* ========================================
+   COULEURS
+   ======================================== */
+
+:root {
+  /* Couleurs Principales */
+  --color-primary: #FEE690;      /* Couleur 1 - Jaune vintage */
+  --color-secondary: #91E5E0;    /* Couleur 2 - Turquoise */
+  --color-tertiary: #6B9BD8;     /* Couleur 3 - Bleu pour boutons */
+  --color-black-25: rgba(0, 0, 0, 0.25);  /* Couleur 4 - Noir 25% opacité */
+  --color-black: #000000;        /* Couleur 5 - Noir */
+  --color-white: #FFFFFF;        /* Couleur 6 - Blanc */
+
+  /* ========================================
+     TYPOGRAPHIES
+     ======================================== */
+
+  /* Police Principale */
+  --font-principal: 'Kings', serif;
+
+  /* Police Secondaire */
+  --font-secondary: 'Yatra One', cursive;
+
+  /* Police Alternative */
+  --font-alternative: 'Grenze Gotisch', serif;
+
+  /* Police Textes */
+  --font-text: 'Roboto', sans-serif;
+
+  /* Police Spéciale Footer */
+--font-footer: 'Bungee Spice', cursive;
+
+  /* ========================================
+     POIDS DE POLICES
+     ======================================== */
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ========================================
+     EFFETS ET OMBRES
+     ======================================== */
+
+  /* Ombre de boîte pour éléments */
+  --box-shadow-normal: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --box-shadow-enhanced: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+  /* Border radius coin haut-droite */
+  --border-radius-top-right: 0 25px 0 0;
+
+  /* Opacité fond blanc pour formulaires */
+  --white-opacity-25: rgba(255, 255, 255, 0.25);
+
+  /* ========================================
+     VARIABLES ADMINISTRATION
+     ======================================== */
+  
+  /* Couleurs Back-Office */
+  --color-admin-primary: #B89F68;    /* Couleur primaire admin */
+  --color-admin-secondary: #4B4237;  /* Couleur secondaire admin */
+  --color-admin-text: #333;          /* Texte principal admin */
+  --color-admin-bg: #f8f8f8;         /* Background admin */
+  --color-success: #28a745;          /* Couleur succès */
+  --color-error: #dc3545;            /* Couleur erreur */
+  --color-warning: #ffc107;          /* Couleur avertissement */
+  --color-dark: #000000;             /* Couleur sombre (noir pur) */
+  --color-light: #f8f9fa;            /* Couleur claire */
+  --color-accent: #007bff;           /* Couleur d'accent */
+  
+  /* Couleurs des boutons (inversées entre front et back) */
+  --btn-primary-bg: var(--color-tertiary);       /* Bleu pour boutons primaires */
+  --btn-primary-hover: #3a80d1;                 /* Bleu plus foncé au survol */
+  --btn-secondary-bg: var(--color-primary);      /* Jaune pour boutons secondaires */
+  --btn-secondary-hover: #e6cf81;               /* Jaune plus foncé au survol */
+  
+  /* Admin Layout */
+  --border-radius: 4px;              /* Border radius standard */
+  --shadow-admin: 0 2px 5px rgba(0,0,0,0.1);  /* Ombre standard admin */
+}

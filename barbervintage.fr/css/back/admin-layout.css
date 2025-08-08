@@ -1,0 +1,305 @@
+/* ========================================
+   BARRE INFO ADMIN & TITRES DASHBOARD
+   ======================================== */
+.admin-info-bar {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: var(--color-secondary);
+    color: var(--color-light);
+    padding: 0;
+    border-bottom: 2px solid var(--color-primary);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    z-index: 10;
+}
+
+.admin-info-contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 20px 12px 20px;
+    box-sizing: border-box;
+    gap: 12px;
+    min-height: 48px;
+}
+/* Centrage parfait des sous-éléments (message et boutons) */
+.admin-info-contenu > * {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+@media (max-width: 900px) {
+  .admin-info-contenu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 10px;
+  }
+}
+
+/* Style harmonisé avec .dashboard-card__title */
+.dashboard-title-standalone {
+    background-color: var(--color-dark);
+    color: var(--color-primary);
+    padding: 20px;
+    font-family: 'Grenze Gotisch', cursive;
+    font-size: 1.6rem;
+    margin: 0;
+    border-bottom: 3px solid var(--color-primary);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+}
+/* ========================================
+   BLOC-INFOS-BACK, HERO-BACK, GALLERY-BACK (structure)
+   Extrait de back-content.css pour modularisation
+   ======================================== */
+
+.bloc-infos-back,
+.hero-back,
+.gallery-back {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: var(--color-admin-bg);
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-info-bar + .dashboard-container .infos-back {
+    margin-top: 0 !important;
+    border-top: none;
+}
+
+/* Bloc infos-back__container : fond jaune, centrage texte et contenu */
+.infos-back__container {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    background: var(--color-primary); /* Jaune principal de la charte */
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 32px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero-back__container,
+.gallery-back__container {
+    max-width: 900px;
+    margin: 0 auto 32px auto;
+    background: var(--color-admin-bg, #fff);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 32px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+/* ========================================
+   ADMIN LAYOUT, HEADER, FOOTER, DASHBOARD, CARDS
+   Extracted from back.css for modularization
+   ======================================== */
+
+.admin-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+.admin-header {
+    background-color: var(--color-black);
+    border-bottom: 4px solid var(--color-admin-primary);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important; /* Z-index très élevé */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    margin-bottom: 0; /* Suppression de toute marge */
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header__logo-img {
+    height: 70px;
+    width: 70px; /* Largeur égale à la hauteur pour ratio carré */
+    border: 3px solid var(--color-primary); /* Contour jaune identique à l'index */
+    border-radius: 100px; /* Forme circulaire comme l'index */
+    object-fit: cover; /* Maintient les proportions de l'image */
+    display: block;
+}
+
+.header__title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.header__title h1 {
+    font-family: 'Grenze Gotisch', cursive;
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.header__title h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: 1.4rem;
+    color: var(--color-light);
+    margin: 5px 0 0;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-main {
+    flex: 1;
+    padding: 0;
+    margin-top: 200px; /* Réduit pour coller la barre au header */
+}
+
+.admin-footer {
+    margin-top: 0 !important; /* Suppression stricte de l'espace en haut */
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: var(--font-footer, var(--font-text));
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   DASHBOARD CONTAINER
+   ======================================== */
+.dashboard-container {
+    max-width: 100%;
+    margin: 0;
+    display: block; /* Changé en block pour les sections empilées */
+    padding: 0;
+}
+
+.dashboard-section {
+    width: 100%;
+    margin: 0; /* Suppression de toutes les marges externes */
+    padding: 0; /* Suppression de tous les paddings */
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 0; /* Suppression des coins arrondis */
+    box-shadow: none; /* Suppression de l'ombre */
+    border-bottom: 1px solid #ddd; /* Ajout d'une bordure pour séparer */
+    overflow: hidden;
+    transition: none; /* Suppression des transitions */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+}
+
+.dashboard-card:hover {
+    transform: none; /* Suppression de l'effet de survol */
+    box-shadow: none;
+}
+
+.dashboard-card__title {
+    background-color: var(--color-dark);
+    color: var(--color-primary);
+    padding: 20px;
+    font-family: 'Grenze Gotisch', cursive;
+    font-size: 1.6rem;
+    margin: 0; /* Aucune marge externe pour collage parfait */
+    margin-bottom: 0; /* Force la suppression de marge basse */
+    border-bottom: 3px solid var(--color-primary);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-card__contenu {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    gap: 0;
+    align-items: center; /* Centre horizontalement les enfants */
+    justify-content: flex-start; /* Laisse le contenu en haut, change en center si besoin vertical */
+}
+
+/* Contenu de la galerie avec padding interne uniquement */
+.gallery-section .dashboard-card__contenu {
+    padding: 20px; /* Padding interne pour le contenu de galerie */
+    padding-top: 20px; /* Padding supérieur maintenu car pas de titre au-dessus */
+}
+
+.dashboard-card__description {
+    margin-bottom: 25px;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.dashboard-card__actions {
+    margin-top: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+/* Structure générale, containers, header, footer, dashboard, cards, titres */
+@import url('../common/variables.css');
+
+/* ... Place ici le code layout général extrait de back.css/back-content.css ... */

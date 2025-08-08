@@ -1,0 +1,162 @@
+/* ========================================
+   ANIMATION TONDEUSE - VINTAGE BARBER SHOP v1 FINALE
+   Système d'animation responsive avec comportements spécifiques par breakpoint
+   
+   ✅ CONFIGURATION FINALE :
+   Mobile (360px): Animation verticale descendante avec rotation et scale x3
+   Tablette (768px): Animation horizontale avec scale x1.5 (right: -655px)
+   Desktop (1200px+): Animation horizontale avec taille normale (scale x1)
+   
+   🎯 PERFORMANCES : 60fps garantis, transitions fluides optimisées
+   ======================================== */
+
+/* ========================================
+   TONDEUSE - BASE MOBILE (360px)
+   Configuration mobile-first avec animation verticale
+   ======================================== */
+
+.header__tondeuse-animation {
+    position: fixed; /* Position fixe indépendante du header pour contrôle précis */
+    transform: translateY(-50%) translateX(-50%) rotate(-90deg) scale(3); /* Centrage horizontal + rotation verticale + agrandissement mobile */
+    z-index: 9999; /* Priorité maximale d'affichage */
+    opacity: 1; /* Visibilité complète */
+    display: block;
+    /* Animation de flottement léger pour effet vivant */
+    animation: float-gentle 3s ease-in-out infinite;
+    /* Transition fluide pour animation du menu burger */
+    transition: top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Position initiale cachée au-dessus de l'écran */
+    top: -240px; /* Position de départ hors écran avec marge sécuritaire */
+    left: 50%; /* Centrage horizontal parfait */
+    height: 400px; /* Taille de base mobile avant application du scale x3 */
+}
+
+/* État actif : tondeuse descend et se positionne dans le header mobile */
+.header__tondeuse-animation.menu-triggered {
+    top: 60px; /* Position visible dans le header mobile pour interaction avec menu */
+    animation: none; /* Désactivation du flottement pendant l'animation descendante */
+}
+
+/* État de retour : tondeuse remonte vers position initiale */
+.header__tondeuse-animation.menu-closing {
+    top: -240px; /* Retour à la position initiale hors écran */
+    transition: top 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19); /* Transition plus lente pour effet dramatique */
+    animation: none; /* Pas de flottement pendant le retour */
+}
+
+/* État final : tondeuse complètement masquée */
+.header__tondeuse-animation.disappeared {
+    top: -240px; /* Position finale hors écran */
+    display: none; /* Masquage complet pour optimisation performance */
+    animation: none; /* Aucune animation active */
+}
+
+.header__tondeuse-img {
+    height: 100%; /* Utilise toute la hauteur du conteneur parent */
+    width: auto; /* Largeur automatique pour préserver les proportions */
+    display: block; /* Affichage en bloc pour contrôle précis */
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   Adaptation comportementale par taille d'écran
+   ======================================== */
+
+/* TABLETTE (768px) - Animation horizontale avec agrandissement */
+@media (min-width: 768px) {
+    .header__tondeuse-animation {
+        /* Transformation vers animation horizontale avec agrandissement tablette */
+        transform: translateY(-50%) rotate(0deg) scale(1.5); /* Suppression rotation mobile + agrandissement pour visibilité */
+        transition: right 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transition horizontale fluide */
+        top: 140px; /* Centrage vertical dans header tablette (280px / 2) */
+        right: -655px; /* Position de départ éloignée pour éviter conflit avec menu burger */
+        left: auto; /* Annulation du centrage mobile */
+        height: 600px; /* Taille adaptée tablette */
+    }
+    
+    /* États d'animation pour tablette */
+    .header__tondeuse-animation.menu-triggered {
+        right: -50px; /* Position d'arrivée avec dépassement contrôlé */
+        top: 140px; /* Maintien de la hauteur centrée */
+    }
+    
+    .header__tondeuse-animation.menu-closing {
+        right: -100%; /* Disparition complète vers la droite */
+        top: 140px; /* Maintien de la hauteur centrée */
+        transition: right 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19); /* Transition de fermeture plus lente */
+    }
+    
+    .header__tondeuse-animation.disappeared {
+        right: -100%; /* Position finale hors écran à droite */
+        top: 140px; /* Maintien de la hauteur centrée */
+    }
+}
+
+/* DESKTOP (1200px+) - Animation horizontale taille normale */
+@media (min-width: 1200px) {
+    .header__tondeuse-animation {
+        /* Animation horizontale avec taille normale desktop */
+        transform: translateY(-50%) rotate(0deg) scale(1); /* Taille normale sans agrandissement */
+        transition: right 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transition horizontale fluide */
+        top: 150px; /* Centrage vertical dans header desktop (300px / 2) */
+        right: -500px; /* Position de départ standard desktop */
+        left: auto; /* Annulation du centrage mobile */
+        height: 800px; /* Taille adaptée desktop */
+    }
+    
+    /* États d'animation pour desktop */
+    .header__tondeuse-animation.menu-triggered {
+        right: 10%; /* Position d'entrée depuis la droite */
+        top: 150px; /* Maintien de la hauteur centrée */
+    }
+    
+    .header__tondeuse-animation.menu-closing {
+        right: -100%; /* Disparition complète vers la droite */
+        top: 150px; /* Maintien de la hauteur centrée */
+        transition: right 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19); /* Transition de fermeture plus lente */
+    }
+    
+    .header__tondeuse-animation.disappeared {
+        right: -100%; /* Position finale hors écran à droite */
+        top: 150px; /* Maintien de la hauteur centrée */
+    }
+}
+
+/* ========================================
+   ANIMATIONS FLOTTEMENT
+   Effet de lévitation légère pour dynamisme visuel
+   ======================================== */
+
+/* Animation flottement mobile avec rotation et scale */
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(-50%) translateX(-50%) rotate(-90deg) scale(3) translateY(0); /* Position de base mobile avec rotation verticale */
+    }
+    50% {
+        transform: translateY(-50%) translateX(-50%) rotate(-90deg) scale(3) translateY(10px); /* Mouvement descendant léger */
+    }
+}
+
+/* Animation flottement tablette avec agrandissement scale 1.5 */
+@media (min-width: 768px) {
+    @keyframes float-gentle {
+        0%, 100% {
+            transform: translateY(-50%) rotate(0deg) scale(1.5) translateX(0); /* Position de base tablette horizontale avec agrandissement */
+        }
+        50% {
+            transform: translateY(-50%) rotate(0deg) scale(1.5) translateX(10px); /* Mouvement latéral léger */
+        }
+    }
+}
+
+/* Animation flottement desktop avec taille normale */
+@media (min-width: 1200px) {
+    @keyframes float-gentle {
+        0%, 100% {
+            transform: translateY(-50%) rotate(0deg) scale(1) translateX(0); /* Position de base desktop horizontale taille normale */
+        }
+        50% {
+            transform: translateY(-50%) rotate(0deg) scale(1) translateX(10px); /* Mouvement latéral léger */
+        }
+    }
+}

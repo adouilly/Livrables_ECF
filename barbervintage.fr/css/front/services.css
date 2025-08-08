@@ -1,0 +1,357 @@
+/* ========================================
+   SECTION SERVICES - VINTAGE BARBER SHOP
+   ======================================== */
+
+/* Import des variables */
+@import url('../common/variables.css');
+
+/* ========================================
+   TITRE PRINCIPAL SERVICES
+   ======================================== */
+
+.services {
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 0; /* Suppression complète du padding pour éliminer tous les espaces */
+}
+
+.services__title-container {
+    width: 100%;
+    background-color: var(--color-black); /* Background noir */
+    padding: 40px 0; /* Déjà aligné avec la section contact */
+    margin-bottom: 0; /* Suppression de l'espace - collés */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services__title {
+    font-family: var(--font-principal);
+    font-size: 2rem; /* Taille corrigée pour meilleure lisibilité */
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary); /* Couleur jaune */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 2px 2px 4px var(--color-white); /* Ombre blanche */
+}
+
+/* ========================================
+   CONTENEUR PRINCIPAL SERVICES
+   ======================================== */
+
+.services__container {
+    max-width: 100%; /* 100% de la largeur de la page */
+    width: 100%;
+    margin: 0; /* Suppression complète des marges - collé directement au titre */
+    padding: 0; /* Suppression du padding - aucune marge */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 40px;
+    align-items: stretch; /* Même hauteur pour les deux blocs */
+}
+
+/* ========================================
+   BLOC GAUCHE - À PROPOS DU BARBIER
+   ======================================== */
+
+.services__about {
+    background-color: var(--color-primary); /* Background jaune */
+    border-radius: 0 35px 0 0; /* Border radius uniquement coin haut droite */
+    padding: 30px 20px 40px 20px; /* Harmonisé avec la section contact */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--box-shadow-normal); /* Ombre pour faire ressortir le bloc */
+}
+
+.services__about-title {
+    font-family: var(--font-principal);
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.services__about-text {
+    font-family: var(--font-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-black);
+    margin: 0;
+    max-width: 100%;
+    text-align: left; /* Texte aligné à gauche pour la lisibilité */
+}
+
+/* ========================================
+   BLOC DROITE - PRESTATIONS
+   ======================================== */
+
+.services__prestations {
+    background-color: var(--color-white);
+    padding: 30px 20px 40px 20px; /* Harmonisé avec la section contact */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services__prestations-title {
+    font-family: var(--font-principal);
+    font-size: 1.8rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ========================================
+   FLIP BOX - TABLEAUX PRESTATIONS
+   ======================================== */
+
+.services__flip-container {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    /* Indication visuelle que c'est cliquable sur mobile */
+    cursor: pointer;
+}
+
+.services__flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.services__flip-container:hover .services__flip-card {
+    transform: rotateY(180deg);
+}
+
+/* État flippé via JavaScript pour mobile */
+.services__flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.services__flip-front,
+.services__flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.services__flip-front {
+    background-color: var(--color-white);
+    /* Suppression du contour jaune, garde seulement l'ombre légère */
+}
+
+.services__flip-back {
+    background-color: var(--color-primary); /* Background jaune pour le côté retourné */
+    transform: rotateY(180deg);
+}
+
+/* ========================================
+   TABLEAUX PRESTATIONS
+   ======================================== */
+
+.services__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-text);
+    font-size: 0.9rem;
+}
+
+.services__table th,
+.services__table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.services__table th {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    background-color: rgba(0, 0, 0, 0.05);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.services__table td {
+    color: var(--color-black);
+}
+
+.services__table-title {
+    font-family: var(--font-principal);
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Styles spécifiques pour le côté retourné (jaune) */
+.services__flip-back .services__table th {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE FIRST APPROACH
+   Breakpoints: 360px, 768px, 1200px+
+   ======================================== */
+
+/* MOBILE (jusqu'à 767px) */
+@media (max-width: 767px) {
+    .services__container {
+        grid-template-columns: 1fr; /* Une seule colonne en mobile */
+        gap: 30px;
+        padding: 0; /* Aucune marge sur mobile */
+    }
+    
+    .services__title {
+        font-size: 1.6rem; /* Taille réduite pour tablette */
+    }
+    
+    .services__about {
+        padding: 40px 30px; /* Padding important même sur mobile */
+    }
+    
+    .services__prestations {
+        padding: 30px 20px;
+    }
+    
+    .services__flip-container {
+        height: 250px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent; /* Supprime le highlight au tap sur mobile */
+        user-select: none; /* Empêche la sélection de texte involontaire */
+    }
+    
+    /* S'assurer que la transition se fait correctement */
+    .services__flip-card {
+        transform-style: preserve-3d;
+        transition: transform 0.7s ease; /* Transition légèrement plus lente pour mobile */
+    }
+    
+    .services__flip-card.flipped {
+        transform: rotateY(180deg);
+    }
+    
+    /* S'assurer que les faces avant et arrière sont bien positionnées */
+    .services__flip-front, 
+    .services__flip-back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    /* S'assurer que le côté arrière est bien caché */
+    .services__flip-back {
+        transform: rotateY(180deg);
+    }
+    
+    .services__table {
+        font-size: 0.8rem;
+    }
+    
+    /* Hints responsive */
+    .desktop-hint {
+        display: none;
+    }
+    
+    .mobile-hint {
+        display: inline !important;
+    }
+}
+
+/* TABLETTE (768px) */
+@media (min-width: 768px) {
+    .services__title {
+        font-size: 1.4rem; /* 2.8rem ÷ 2 = 1.4rem */
+    }
+    
+    .services__about-title,
+    .services__prestations-title {
+        font-size: 2rem;
+    }
+}
+
+/* DESKTOP (1200px+) */
+@media (min-width: 1200px) {
+    .services__title {
+        font-size: 2.2rem; /* Taille augmentée pour desktop */
+    }
+    
+    .services__about {
+        padding: 85px 65px; /* Augmentation de 5px du padding sur desktop */
+    }
+    
+    .services__prestations {
+        padding: 50px 40px;
+    }
+    
+    .services__flip-container {
+        height: 350px;
+        max-width: 450px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS ET TRANSITIONS
+   ======================================== */
+
+.services__flip-card {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.services__flip-front,
+.services__flip-back {
+    transition: box-shadow 0.3s ease;
+}
+
+.services__flip-container:hover .services__flip-front,
+.services__flip-container:hover .services__flip-back {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation d'apparition au scroll (optionnel) */
+.services__about,
+.services__prestations {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

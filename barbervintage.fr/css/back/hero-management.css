@@ -1,0 +1,385 @@
+/* ========================================
+   ACTIONS-SECTION HERO (barre de boutons) - RESET & NOUVEAU DESIGN
+   ======================================== */
+/* Harmonisation de l'espacement avec .gallery-upload-actions */
+.actions-section-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background: var(--color-secondary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-radius: 8px;
+    padding: 18px 24px 18px 24px; /* Ajout padding haut et bas */
+    margin: 0 auto 24px auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
+    min-height: 56px;
+}
+.actions-hero .btn-admin {
+    min-width: 140px;
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.actions-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    background: var(--color-secondary);
+    border-radius: 12px;
+    padding: 28px 0 28px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+/* ========================================
+   HERO-BACK - Styles hero-back admin
+   Extrait de back-content.css pour modularisation
+   ======================================== */
+
+.hero-admin__contenu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+.hero-back__current,
+.hero-admin__formulaire {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.hero-admin__apercu {
+    width: 100%;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    padding: 3rem;
+    text-align: center;
+    background-color: #f2f2f2;
+    color: #888;
+    border-radius: var(--border-radius);
+}
+.hero-admin__groupe-formulaire {
+    margin-bottom: 1.5rem;
+}
+.hero-admin__etiquette {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+.hero-admin__champ {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: var(--font-primary);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+.hero-back__input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(184, 159, 104, 0.2);
+    outline: none;
+}
+.hero-admin__exigences {
+    background-color: #f8f8f8;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.hero-back__requirements h4 {
+    color: var(--color-secondary);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+.hero-back__requirements ul {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+    list-style-type: none;
+}
+.hero-back__requirements li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+.hero-back__requirements li:before {
+    content: "\2022";
+    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+.hero-admin__bouton {
+    background-color: var(--color-primary);
+.visionneuse-hero__apercu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0 0 0;
+  background: #fff;
+  border-radius: 0 0 14px 14px;
+    height: 100%;
+.hero-admin__bouton {
+    background-color: var(--color-primary);
+
+/* ========================================
+   HERO VIEWER - CENTRAGE DASHBOARD (CLEAN)
+   ======================================== */
+.visionneuse-hero {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  margin: 32px auto;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.visionneuse-hero__titre {
+  color: var(--color-primary);
+  font-size: 1.7rem;
+  font-family: 'Grenze Gotisch', cursive;
+  background: var(--color-dark);
+  width: 100%;
+  text-align: center;
+  padding: 22px 0 18px 0;
+  margin: 0 0 12px 0;
+  border-bottom: 3px solid var(--color-primary);
+  letter-spacing: 1px;
+}
+.visionneuse-hero__apercu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 0 0 12px 0;
+}
+.visionneuse-hero__cadre {
+  border: 3px solid var(--color-tertiary);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.visionneuse-hero__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 400px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.visionneuse-hero__info {
+  text-align: center;
+  background: var(--color-admin-bg);
+  padding: 15px 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #444;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.visionneuse-hero__info p {
+  margin: 8px 0;
+  color: var(--color-admin-text);
+}
+@media (max-width: 768px) {
+  .visionneuse-hero {
+    padding: 0 0 18px 0;
+  }
+  .visionneuse-hero__cadre {
+    max-width: 98vw;
+    min-height: 120px;
+  }
+  .visionneuse-hero__image {
+    max-height: 180px;
+  }
+}
+
+.hero-apercu__img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+    border: 2px solid var(--color-primary);
+}
+
+.hero-apercu__info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+}
+
+.hero-preview__info p {
+    margin: 5px 0;
+}
+
+/* ========================================
+   INTERFACE MANAGE-HERO
+   ======================================== */
+/* ========================================
+   HERO VIEWER - RESET & NOUVEAU DESIGN
+   ======================================== */
+/* Visionneuse Hero - Bloc centré, sans doublons, propre */
+.visionneuse-hero {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  padding: 0 0 24px 0;
+  margin: 32px auto;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Centrage forcé dans tous les contextes parents */
+.dashboard-card__contenu > .visionneuse-hero,
+.dashboard-container > .visionneuse-hero,
+.admin-main > .visionneuse-hero {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-self: center !important;
+  justify-self: center !important;
+}
+    font-family: 'Grenze Gotisch', cursive;
+    background: var(--color-dark);
+    width: 100%;
+    text-align: center;
+    padding: 22px 0 18px 0;
+    margin: 0 0 12px 0;
+    border-bottom: 3px solid var(--color-primary);
+    letter-spacing: 1px;
+    border-radius: 14px 14px 0 0;
+}
+.visionneuse-hero__apercu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: block;
+    max-width: 100%;
+    max-height: 260px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    gap: 18px;
+    width: 100%;
+    padding: 0 0 12px 0;
+}
+.visionneuse-hero__cadre {
+    border: 3px solid var(--color-tertiary);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+}
+.visionneuse-hero__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 400px;
+    background: #f9f9f9;
+}
+.visionneuse-hero__info {
+    text-align: center;
+    background: var(--color-admin-bg);
+    padding: 15px 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.hero-viewer__info p {
+    margin: 8px 0;
+    color: var(--color-admin-text);
+}
+
+.hero-viewer__title {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.hero-viewer__preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-viewer__frame {
+    border: 3px solid var(--color-tertiary);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+}
+
+.hero-viewer__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-viewer__info {
+    text-align: center;
+    background: var(--color-admin-bg);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.hero-viewer__info p {
+    margin: 8px 0;
+    color: var(--color-admin-text);
+}
+
+.dashboard-card__contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* ou center si tu veux aussi centrer verticalement */

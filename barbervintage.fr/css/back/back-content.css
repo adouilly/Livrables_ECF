@@ -1,0 +1,15 @@
+/* ========================================
+   BACK-CONTENT CSS - VINTAGE BARBER SHOP v2 MODULARISÉ
+   Ce fichier n'importe que les modules CSS dédiés pour chaque feature.
+   ======================================== */
+
+@import url('../common/variables.css');
+@import url('./admin-layout.css');
+@import url('./admin-buttons.css');
+@import url('./admin-forms.css');
+@import url('./admin-alerts.css');
+@import url('./admin-utilities.css');
+@import url('./gallery-management.css');
+@import url('./hero-management.css');
+@import url('./upload-system.css');
+@import url('./admin-responsive.css');

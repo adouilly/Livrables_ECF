@@ -1,0 +1,49 @@
+/* ========================================
+   ADMIN BUTTONS - Boutons et actions admin
+   Extrait de back.css pour modularisation
+   ======================================== */
+
+
+/* Nouveau style inspiré du bouton contact__submit-btn pour tous les boutons admin ciblés */
+.btn-admin,
+.btn-admin--primaire,
+.btn-admin--secondaire {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
+    border: 2px solid var(--color-tertiary);
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    box-shadow: var(--box-shadow-enhanced);
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 4px;
+    outline: none;
+}
+
+.btn-admin:hover,
+.btn-admin--primaire:hover,
+.btn-admin--secondaire:hover {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-admin:active,
+.btn-admin--primaire:active,
+.btn-admin--secondaire:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}

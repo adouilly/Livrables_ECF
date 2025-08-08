@@ -1,0 +1,104 @@
+/* ========================================
+   SECTION HERO - VINTAGE BARBER SHOP
+   Image full-width sous le header FIXE
+   ======================================== */
+
+.hero {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* Margin-top pour compenser le header fixe */
+    margin-top: 260px; /* Hauteur header mobile (260px) */
+}
+
+.hero__image-container {
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+.hero__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE FIRST APPROACH
+   Breakpoints: 360px, 768px, 1200px+
+   Ajustement margin-top selon hauteur header
+   ======================================== */
+
+/* BASE MOBILE (360px) */
+.hero {
+    min-height: 250px; /* Hauteur minimum mobile */
+    margin-top: 260px; /* Header mobile: 260px */
+}
+
+.hero__image {
+    min-height: 250px;
+    max-height: 300px; /* Limite sur mobile pour éviter que l'image soit trop haute */
+}
+
+/* TABLETTE (768px) */
+@media (min-width: 768px) {
+    .hero {
+        min-height: 350px;
+        margin-top: 280px; /* Header tablette: 280px */
+    }
+    
+    .hero__image {
+        min-height: 350px;
+        max-height: 450px;
+    }
+}
+
+/* DESKTOP (1200px+) */
+@media (min-width: 1200px) {
+    .hero {
+        min-height: 500px;
+        margin-top: 300px; /* Header desktop: 300px */
+    }
+    
+    .hero__image {
+        min-height: 500px;
+        max-height: 600px; /* Image imposante sur desktop */
+    }
+}
+
+/* ========================================
+   OPTIMISATIONS PERFORMANCE
+   ======================================== */
+
+.hero__image {
+    /* Optimisation du rendu */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    
+    /* Transition douce lors du chargement */
+    transition: opacity 0.3s ease;
+}
+
+.hero__image:not([src]) {
+    /* Image de fallback en cas de problème de chargement */
+    background-color: var(--color-black-10);
+    opacity: 0.5;
+}
+
+/* ========================================
+   ACCESSIBILITÉ
+   ======================================== */
+
+.hero__image {
+    /* Assure que l'image est bien accessible */
+    outline: none;
+}
+
+/* Réduction de mouvement pour les utilisateurs sensibles */
+@media (prefers-reduced-motion: reduce) {
+    .hero__image {
+        transition: none;
+    }
+}
