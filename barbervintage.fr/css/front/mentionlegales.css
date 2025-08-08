@@ -1,4 +1,3 @@
-
 /* ========================================
    POPUP MENTIONS LÉGALES
    ======================================== */
@@ -54,8 +53,130 @@
     cursor: pointer;
     z-index: 3;
     opacity: 0.7;
-    transition: opacity 0.2s;
+    }
+.back-link-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
-.legal-modal__close:hover {
-    opacity: 1;
+
+.back-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
+    text-decoration: none;
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-bold);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-link:hover {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+}
+.legal-page {
+/* Bloc principal du contenu des mentions légales */
+.legal-page__content {
+    font-family: var(--font-text);
+    color: var(--color-text);
+    line-height: 1.8;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    background: #fff;
+        padding: 32px 24px 60px 24px; /* padding-bottom cohérent avec le haut */
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.legal-page__content p {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: justify;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+}
+
+.legal-page__content strong {
+    color: var(--color-tertiary);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.09rem;
+}
+    width: 100vw;
+    margin: 0;
+    padding: 260px 0 80px 0; /* padding-top = hauteur du header mobile (260px) */
+    background-color: var(--color-white);
+    min-height: 60vh;
+    box-sizing: border-box;
+    /* padding-top géré ici pour éviter le chevauchement du header */
+}
+@media (min-width: 768px) {
+    .legal-page {
+        padding-top: 280px; /* header tablette */
+    }
+}
+@media (min-width: 1200px) {
+    .legal-page {
+        padding-top: 300px; /* header desktop */
+    }
+}
+
+/* Titre Mentions Légales */
+.legal-page__title {
+    width: 100vw;
+    margin: 0 0 40px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-principal);
+    font-size: 2.2rem;
+    font-weight: var(--font-weight-bold);
+    background: var(--color-black);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    min-width: 100vw;
+    max-width: 100vw;
+    /* Correction : démarre bien sous le header */
+    margin-top: 0;
+    padding-top: 60px;
+}
+@media (min-width: 768px) {
+    .legal-page__title {
+        padding-top: 80px;
+    }
+}
+@media (min-width: 1200px) {
+    .legal-page__title {
+        padding-top: 100px;
+    }
+}
+
+/* Responsive : pas de padding/margin latéral sur mobile/tablette/desktop */
+@media (min-width: 768px) {
+    .legal-page,
+    .legal-page__title {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .legal-page,
+    .legal-page__title {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

@@ -7,8 +7,6 @@
 function globalCacheRefresh() {
     const timestamp = Date.now();
     
-    console.log("🔄 Rafraîchissement cache démarré");
-    
     // 1. Rafraîchir seulement les images hero et galerie
     refreshSpecificImages(timestamp);
     
@@ -17,8 +15,6 @@ function globalCacheRefresh() {
         localStorage.removeItem('hero_cache');
         localStorage.removeItem('gallery_cache');
     }
-    
-    console.log("✅ Rafraîchissement terminé");
 }
 
 // Rafraîchir seulement les images spécifiques
@@ -41,10 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     
     if (urlParams.get('cache_refresh') || urlParams.get('force_reload')) {
-        console.log("🔄 Paramètre de rafraîchissement détecté");
         setTimeout(globalCacheRefresh, 500);
     }
 });
-
 // Exposer la fonction globalement pour utilisation manuelle
 window.globalCacheRefresh = globalCacheRefresh;

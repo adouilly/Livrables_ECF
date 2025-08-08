@@ -48,9 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('scroll', resetInactivityTimer);
     */
     
-    // Ajout d'une console debug pour la partie admin
-    console.log("Login - Déconnexion automatique désactivée temporairement - Sera réactivée dans la V2");
-    
     // ========================================
     // SÉCURITÉ - DÉCONNEXION AUTO
     // ========================================
@@ -59,14 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupInactivityTimeout() {
         // Ne s'applique pas à la page de login elle-même
         // Sera utile pour les autres pages admin après connexion
-        console.log("Timeout d'inactivité désactivé sur la page de login");
     }
     
     // Réinitialise le timer d'inactivité
     function resetInactivityTimer() {
         // Ne s'applique pas à la page de login elle-même
         // Ce code sera plus pertinent dans le dashboard.php
-        console.log("Reset inactivity timer désactivé");
         // Ne pas utiliser inactivityTimeout car il n'est pas défini
     }
 });

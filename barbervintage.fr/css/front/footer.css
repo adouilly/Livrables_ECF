@@ -106,7 +106,7 @@
     font-family: var(--font-footer, var(--font-text));
     font-size: 1rem;
     color: black; /* Changé de var(--color-white) à black */
-    position: static;
+    position: relative; /* modifié de static à relative */
     left: 0;
     bottom: 0;
     z-index: 2;
@@ -152,4 +152,16 @@
     .footer-nav__link {
         font-size: 0.85rem;
     }
+}
+
+/* Ajout pour footer collé en bas de page */
+body.front-page,
+body.page-mentions-legales {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1 0 auto;
 }

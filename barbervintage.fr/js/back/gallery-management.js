@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initGalleryDragDrop();
     initGalleryButtons();
     initGalleryUpload();
-    console.log('✅ Gallery management initialisé');
 });
 
 /**
@@ -219,7 +218,6 @@ function initGalleryButtons() {
 function saveGalleryOrder() {
     const items = document.querySelectorAll('.element-galerie');
     const order = Array.from(items).map(item => parseInt(item.dataset.id));
-    console.log('🔄 Sauvegarde ordre galerie:', order);
     fetch('handlers/reorder-gallery.php', {
         method: 'POST',
         headers: {
@@ -235,7 +233,6 @@ function saveGalleryOrder() {
             orderChanged = false;
             refreshGalleryImages();
             updateGalleryNumbers();
-            console.log('✅ Ordre galerie sauvegardé');
         } else {
             showGalleryMessage('Erreur: ' + data.message, 'error');
         }
@@ -312,14 +309,10 @@ function showGalleryMessage(message, type) {
  */
 function refreshGalleryImages() {
     const timestamp = Date.now();
-    
-    // Rafraîchir seulement les images de galerie dans l'admin
     document.querySelectorAll('img[src*="assets/gallery/"]').forEach(img => {
         const baseUrl = img.src.split('?')[0];
         img.src = baseUrl + '?v=' + timestamp;
     });
-    
-    console.log("✅ Cache galerie rafraîchi");
 }
 
 /**

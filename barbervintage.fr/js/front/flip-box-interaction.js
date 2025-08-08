@@ -74,8 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Event listener pour le redimensionnement
         window.addEventListener('resize', handleResize);
         
-    } else {
-        console.warn('⚠️ Éléments flip box non trouvés');
-    }
+    } 
     
 });

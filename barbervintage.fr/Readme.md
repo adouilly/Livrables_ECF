@@ -2,107 +2,107 @@
 
 ## Vue d'ensemble
 
-Site web responsive pour un salon de coiffure vintage avec système complet : front-office interactif, back-office d'administration, base de données, et animations avancées.
+Site web responsive pour salon de coiffure vintage, composé d’un front-office interactif et d’un back-office d’administration sécurisé.  
+Gestion dynamique des contenus (hero, galerie), animations avancées, design modulaire et documentation complète.
 
 **🎯 VERSION 1 FINALE - Janvier 2025**
-- ✅ Architecture PHP procédurale optimisée et professionnelle
-- ✅ Système d'administration CRUD complet avec sécurité renforcée
-- ✅ Interface responsive parfaitement adaptée (360px/768px/1200px+)
-- ✅ Animations fluides et professionnelles (tondeuse responsive, scroll behavior)
-- ✅ Code modulaire et maintenable (CSS/JS organisés par features)
-- ✅ Documentation technique complète et à jour
+- Architecture PHP procédurale optimisée et modulaire
+- Système d'administration CRUD sécurisé (hero, galerie)
+- Interface responsive mobile/tablette/desktop
+- Animations fluides (tondeuse, flip box, scroll)
+- Code CSS/JS organisé par features et sections
+- Documentation technique et graphique à jour
 
-## 📁 Documentation Complète
+## Documentation
 
-**📁 Toute la documentation est centralisée dans** : `../Organisation/docs/`
+Toute la documentation est centralisée dans le dossier `documents/` :
+- `def_feature.md` : Caractéristiques techniques et exemples de code
+- `chartegraphique.md` : Charte graphique complète
+- `CANVA_EFFECT.md` : Effet grille dynamique sur index
+- `BILAN_V1_FINAL.md` : Bilan complet de la V1
+- `STRUCTURE_FICHIERS.md` : Architecture du projet
+- `CHECKLIST_CONSIGNES.md` : Validation des consignes ECF
+- `TESTS_EFFECTUES.md` : Tests et validations réalisés
+- `ERREURS_ET_CORRECTIONS.md` : Historique debugging et corrections
 
-### Documents Principaux
-- **`BILAN_V1_FINAL.md`** - Bilan complet de la Version 1 (TERMINÉE ✅)
-- **`NETTOYAGE_V1_FINAL.md`** - Rapport de nettoyage et optimisations finales
-- **`STRUCTURE_FICHIERS.md`** - Architecture complète du projet
-- **`CHECKLIST_CONSIGNES.md`** - Validation des consignes ECF
-- **`TESTS_EFFECTUES.md`** - Tests et validations réalisés
-- **`ERREURS_ET_CORRECTIONS.md`** - Historique debugging et corrections
+## Fonctionnalités principales
 
-## 🚀 Étapes de développement
+- **Header interactif** : Burger animé, tondeuse signature, header rétractable au scroll
+- **Section Hero** : Image et texte dynamiques, upload depuis l’admin
+- **Section Services** : Flip box interactif, tableaux de prestations, design vintage
+- **Section Galerie** : Navigation fluide, drag & drop admin, upload AJAX, cache busting
+- **Section Contact** : Formulaire, coordonnées, responsive
+- **Animations** : Tondeuse, flip box, fade gallery, transitions CSS
+- **Back-office** : Dashboard, gestion hero/galerie, sécurité, gestion des sessions
+- **Sécurité** : Requêtes préparées PDO, validation stricte, hashage des mots de passe, timeout session
+- **Cache busting** : Rafraîchissement automatique des images après upload
+- **Responsive design** : Mobile-first, breakpoints 360px/768px/1200px+
+- **Accessibilité** : ARIA, navigation clavier, contrastes respectés
 
-Le développement de ce projet se déroule en trois étapes majeures :
+## Structure du projet
 
-### Version 1 (✅ COMPLÉTÉE - Janvier 2025)
-- ✅ **Architecture de base** : PHP procédural optimisé avec sécurité renforcée
-- ✅ **Système CRUD** : Gestion complète galerie + hero avec upload AJAX
-- ✅ **Animations professionnelles** : Tondeuse responsive + scroll behavior fluide
-- ✅ **Administration moderne** : Dashboard full-width + drag & drop + preview inline
-- ✅ **JavaScript modulaire** : Organisation features (js/back/ et js/front/)
-- ✅ **CSS responsive** : Mobile-first avec breakpoints optimisés
-- ✅ **Nettoyage complet** : Suppression code expérimental + optimisations
-- ✅ **Code professionnel** : Architecture modulaire maintenable
-- ✅ **Documentation à jour** : Tests, erreurs, conformité consignes complètes
+```
+barbervintage.fr/
+├── index.php
+├── admin/
+│   ├── login.php
+│   ├── dashboard.php
+│   ├── logout.php
+│   ├── handlers/ (AJAX)
+│   ├── templates/
+│   └── includes/
+├── templates/
+│   ├── front/
+│   ├── components/
+├── css/
+│   ├── common/
+│   ├── front/
+│   ├── back/
+│   └── features/
+├── js/
+│   ├── front/
+│   ├── back/
+│   └── common/
+├── assets/
+│   ├── img/
+│   ├── hero/
+│   └── gallery/
+├── documents/
+│   ├── def_feature.md
+│   ├── chartegraphique.md
+│   ├── CANVA_EFFECT.md
+│   └── ...
+├── sql/
+│   └── vintage_barber_db.sql
+```
 
-### Version 2 (À venir)
-- 🔄 Migration vers architecture MVC
-- 🔄 Refactorisation complète avec POO
-- 🔄 Système de templates plus avancé
-- 🔄 API REST pour mobile
+## Installation
 
-### Version 3 (Future)
-- 🔄 Framework moderne (optionnel)
-- 🔄 Interface utilisateur enrichie
-- 🔄 Fonctionnalités avancées
-- Amélioration des performances
-- Structuration avancée des contrôleurs et modèles
+1. **Serveur local** : WAMP/LAMP/MAMP, PHP 8.3+, MySQL 9.1+
+2. **Créer la base de données** : Importer `sql/vintage_barber_db.sql`
+3. **Configurer** : Modifier `includes/config.php` selon votre environnement
+4. **Accès front** : http://barberdd/
+5. **Accès admin** : http://barberdd/admin/
 
-### Version 3 (Finale)
-- Optimisation design et interactions
-- SEO avancé
-- Sécurité renforcée
-- Expérience utilisateur améliorée
-- Performance optimisée
+## Points de vérification
 
-## ✨ Fonctionnalités Principales
+- Toutes les fonctionnalités annoncées sont présentes et testées.
+- Les scripts JS ne comportent plus de logs ou debug visibles en production.
+- La documentation technique et graphique est à jour.
+- La structure du projet est conforme à la consigne ECF et facilement maintenable.
+- Les fichiers inutiles ou obsolètes ont été supprimés.
+- La sécurité et la gestion des sessions sont opérationnelles.
 
-### 🎨 Header Interactif Avancé
-- **Navigation burger** avec animation fluide et rétraction intelligente sur tous formats
-- **Logo circulaire** avec effet hover
-- **Animation tondeuse unique** - Effet spectaculaire une seule fois par session
-- **Cohérence visuelle** - Navigation alignée avec le logo (190px)
-- **Système de rétraction fluide** :
-  - Au scroll vers le bas : Header remonte laissant 5px visibles
-  - Opacité réduite (25%) avec contour lumineux bleu
-  - Clic sur la partie visible : Restauration instantanée
-  - Transition fluide 0.4s avec effet hover interactif
+## Versions futures
 
-### 🚁 Animation Tondeuse (Signature)
-- **Déclenchement** : Clic sur menu burger
-- **Trajet** : Droite → 10% largeur → Disparition complète
-- **Révélation** : Navigation apparaît "derrière" la tondeuse
-- **Session unique** : Ne se reproduit qu'après rechargement
-- **Mobile responsive** : Rotation -90° et redimensionnement proportionnel
+- **V2** : Migration MVC, refactorisation POO, API REST
+- **V3** : Optimisation SEO, sécurité avancée, design dynamique supplémentaire
 
-### 🏠 Section Hero
-- **Design responsive** avec images de fond adaptatives
-- **Contenu dynamique** géré depuis le back-office
-- **Integration database** avec table hero_content
+---
 
-### 🔧 Section Services
-- **Flip Box interactif** avec prestations coiffure/barbe
-- **Interaction mobile** - Système de clic/tap pour basculer entre faces
-- **Tableaux de prix** avec design vintage
-- **About section** - Présentation du maître barbier
-- **Responsive hints** - Instructions adaptées desktop/mobile
-
-### 🖼️ Section Galerie
-- **Design rétro** avec navigation d'images
-- **Interface fullwidth** avec background noir et border-radius coin haut-droite
-- **Container jaune** avec radius 25px uniquement en haut à droite
-- **Navigation fluide** avec boutons de contrôle
-- **Centering parfait** sur tous formats d'écran
-
-### 📱 Design Responsive & UX
-- **Mobile-first approach** avec breakpoints 360px, 768px, 1200px+
-- **Animations adaptées** selon les devices
-- **Scroll behavior avancé** avec bouton scroll-to-top
-- **Background noir** pour mise en valeur du contenu
+**Technologies** : HTML5, CSS3, JavaScript ES6, PHP 8.3+, MySQL  
+**Design** : Vintage, Mobile-First, Animations Avancées  
+**Statut** : 100% fonctionnel, prêt pour validation et migration V2
 - **Session management** - Page toujours rechargée en haut
 - **Cache intelligent** - Nouvelle session à chaque rechargement
 
@@ -113,7 +113,7 @@ Le développement de ce projet se déroule en trois étapes majeures :
 - **Migration progressive** : Front statique → BDD dynamique selon besoins
 - **Images galerie** : Tableau JavaScript pour performances, migration BDD en back-office
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 barbervintage.fr/
@@ -187,7 +187,7 @@ barbervintage.fr/
 └── sql/database.sql                   # Structure base de données
 ```
 
-## 🎛️ Back-Office - Gestion Galerie
+## Back-Office - Gestion Galerie
 
 ### Fonctionnalités Administrateur Complètes ✅
 - **Vue d'ensemble** : Affichage galerie avec drag & drop pour réorganisation
@@ -209,7 +209,7 @@ barbervintage.fr/
 - **Gestion d'erreurs** : Rollback automatique en cas d'échec
 - **Upload AJAX** : Interface non-bloquante avec feedback temps réel
 
-## 🎯 États d'Animation & Interactions
+## États d'Animation & Interactions
 
 ### Animation Tondeuse
 | État | Position | Durée | Comportement |
@@ -235,7 +235,7 @@ barbervintage.fr/
 | Scroll Up | `transform: translateY(0)` | Header visible |
 | Top Position | Header visible | Button masqué |
 
-## ⚙️ Configuration
+## Configuration
 
 ### Variables CSS Principales
 ```css
@@ -280,7 +280,7 @@ CREATE TABLE hero_content (
 );
 ```
 
-## 🚀 Installation
+## Installation
 
 1. **Serveur local**
 ```bash
@@ -292,7 +292,7 @@ php -S localhost:8000
 http://localhost:8000
 ```
 
-## 📊 Performance & Optimisations
+## Performance & Optimisations
 
 ### Optimisations Front-Office
 - **CSS modulaire** avec système d'imports organisés
@@ -317,7 +317,7 @@ http://localhost:8000
 - **Focus indicators** visibles
 - **Responsive hints** adaptés au device
 
-## 🔧 Développement & Debug
+## Développement & Debug
 
 ### Logs Debug Disponibles
 - **Animation tondeuse** : Console avec émojis et timeline complète
@@ -350,7 +350,7 @@ http://localhost:8000
 http://localhost:8000/admin/login.php
 ```
 
-## 🚦 Statut du Projet
+## Statut du Projet
 
 ### ✅ Sections Front-Office Complètes (100%)
 - **Header** - Navigation burger + animation tondeuse + scroll behavior
@@ -388,7 +388,7 @@ http://localhost:8000/admin/login.php
 - **Optimisations finales** - Performance et SEO
 - **Tests utilisateurs** - Validation UX complète
 
-## 📚 Documentation Technique
+## Documentation Technique
 
 ### Fichiers de Documentation
 - `docs/ANIMATION_TONDEUSE.md` - Guide technique animation signature
@@ -404,7 +404,7 @@ http://localhost:8000/admin/login.php
 
 ---
 
-## 🛠️ Configuration & Installation
+## Configuration & Installation
 
 ### Prérequis WAMP
 - **Serveur Web** : WAMP Server 
@@ -439,16 +439,14 @@ http://localhost:8000/admin/login.php
 **Architecture** : Modulaire, Responsive, Progressive Enhancement  
 **Statut Global Version 1** : 🟢 **Front-Office 100% ✅** | � **Back-Office 100% ✅** | � **Contact En Attente** | 🎯 **Prêt pour MVC Migration**
 
-## 📊 Bilan de la Version 1 (2024)
+## Bilan de la Version 1 (2024)
+- Interface utilisateur complète
+- Administration fonctionnelle
+- Code propre & modulaire
+- Expérience utilisateur optimisée
+- Système upload professionnel
 
-### 🏆 Réalisations Majeures
-1. **Interface Utilisateur Complète** - Site vitrine responsive avec animations avancées
-2. **Administration Fonctionnelle** - CRUD complet avec upload AJAX et drag & drop
-3. **Code Propre & Modulaire** - Architecture optimisée, fichiers organisés, scripts séparés
-4. **Expérience Utilisateur** - Navigation fluide, interactions intuitives, design cohérent
-5. **Système Upload Professionnel** - Validation, preview, feedback temps réel
-
-### 🔧 Améliorations Techniques Apportées
+## Améliorations Techniques
 - ✅ **Extraction JavaScript** - Séparation complète inline scripts → modules dédiés
 - ✅ **AJAX Implementation** - Upload asynchrone sans rechargement page
 - ✅ **Drag & Drop Interface** - Réorganisation galerie intuitive
@@ -456,10 +454,12 @@ http://localhost:8000/admin/login.php
 - ✅ **Code Organization** - js/front/ et js/back/ separation, template modularity
 - ✅ **Error Handling** - Gestion d'erreurs complète avec rollback
 
-### 🎯 Préparation Version 2
+## Préparation Version 2
 Le projet est maintenant prêt pour la migration MVC avec une base solide :
 - Code modulaire et maintenable
 - Architecture claire et documentée  
 - Fonctionnalités testées et validées
+- Interface utilisateur polie
+- Système d'administration complet
 - Interface utilisateur polie
 - Système d'administration complet

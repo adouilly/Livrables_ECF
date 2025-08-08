@@ -34,76 +34,7 @@ $show_animations = false; // Animations désactivées sur cette page
     <link rel="stylesheet" href="css/front/front.css">
     <link rel="stylesheet" href="css/front/footer.css">
     
-    <style>
-        /* Styles spécifiques pour la page des mentions légales */
-        .legal-page {
-            padding: 80px 20px;
-            width: 100%;
-            margin: 0;
-            background-color: var(--color-white);
-            min-height: 60vh;
-            box-sizing: border-box;
-        }
-        
-        .legal-page__title {
-            font-family: var(--font-principal);
-            font-size: 2.2rem;
-            font-weight: var(--font-weight-bold);
-            color: var(--color-tertiary);
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 20px;
-            width: 100%;
-        }
-        
-        .legal-page__content {
-            font-family: var(--font-text);
-            color: var(--color-text);
-            line-height: 1.6;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .legal-page__content p {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        
-        .legal-page__content strong {
-            color: var(--color-tertiary);
-            font-weight: var(--font-weight-bold);
-        }
-        
-        .back-link-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        
-        .back-link {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: var(--color-primary);
-            color: var(--color-tertiary);
-            text-decoration: none;
-            font-family: var(--font-text);
-            font-weight: var(--font-weight-bold);
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .back-link:hover {
-            background-color: var(--color-tertiary);
-            color: var(--color-primary);
-        }
-    </style>
+    <link rel="stylesheet" href="css/front/mentionlegales.css">
     
     <!-- JavaScript (defer pour performance) -->
     <script src="js/common/utils.js" defer></script>
@@ -111,8 +42,6 @@ $show_animations = false; // Animations désactivées sur cette page
     <script src="js/front/mentionlegales.js" defer></script>
 </head>
 <body class="page-mentions-legales">
-    
-    <!-- Header -->
     <!-- Header -->
     <?php include 'templates/front/header.php'; ?>
 

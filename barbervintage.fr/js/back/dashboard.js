@@ -1,15 +1,11 @@
 /**
  * Dashboard Admin - Vintage Barber Shop v1 FINALE
  * Gestion des interactions et fonctionnalités du tableau de bord
- * 
- * ✅ FONCTIONNALITÉS IMPLÉMENTÉES :
+ *
  * - Gestion des images de galerie (suppression)
  * - Formulaire changement mot de passe avec animation
  * - Validation côté client et gestion erreurs
- * - Debug mode pour développement
  */
-
-console.log("🛠️ Dashboard Admin - Mode Debug");
 
 // ================================
 // GESTION DES IMAGES DE GALERIE
@@ -26,7 +22,7 @@ function supprimerImageGalerie(idImage) {
 function basculerFormulaireMotDePasse() {
     const container = document.getElementById('passwordFormContainer');
     const btn = document.getElementById('changePasswordBtn');
-    
+
     if (container.style.display === 'none' || !container.classList.contains('expanded')) {
         // Afficher et étendre
         container.style.display = 'block';
@@ -49,42 +45,36 @@ function basculerFormulaireMotDePasse() {
 // Gestion du formulaire de changement de mot de passe
 document.addEventListener('DOMContentLoaded', function() {
     const passwordForm = document.getElementById('passwordForm');
-    console.log('🔍 Formulaire de changement de mot de passe trouvé:', passwordForm);
-    
+
     if (passwordForm) {
         passwordForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const newPasswordElement = document.getElementById('new_password');
             const confirmPasswordElement = document.getElementById('confirm_password');
-            
-            console.log('🔍 Éléments trouvés:', {
-                newPassword: newPasswordElement,
-                confirmPassword: confirmPasswordElement
-            });
-            
+
             if (!newPasswordElement || !confirmPasswordElement) {
                 console.error('❌ Éléments de mot de passe non trouvés');
                 return;
             }
-            
+
             const newPassword = newPasswordElement.value;
             const confirmPassword = confirmPasswordElement.value;
-            
+
             // Validation des mots de passe
             if (newPassword !== confirmPassword) {
                 alert('Les nouveaux mots de passe ne correspondent pas !');
                 return;
             }
-            
+
             if (newPassword.length < 6) {
                 alert('Le nouveau mot de passe doit contenir au moins 6 caractères !');
                 return;
             }
-            
+
             // Envoi AJAX
             const formData = new FormData(passwordForm);
-            
+
             fetch('handlers/change-password-ajax.php', {
                 method: 'POST',
                 body: formData
@@ -128,19 +118,19 @@ function previewHeroImage(input) {
     const fileInfo = document.getElementById('fileInfo');
     const fileName = document.getElementById('fileName');
     const heroPreview = document.getElementById('heroPreview');
-    
+
     if (file) {
         // Afficher les informations du fichier
         if (fileName) fileName.textContent = file.name;
         if (fileInfo) fileInfo.style.display = 'block';
-        
+
         // Activer le bouton d'upload
         if (uploadBtn) {
             uploadBtn.disabled = false;
             uploadBtn.textContent = 'Uploader';
             uploadBtn.style.opacity = '1';
         }
-        
+
         // Prévisualisation de l'image
         const reader = new FileReader();
         reader.onload = function(e) {
@@ -150,7 +140,7 @@ function previewHeroImage(input) {
             }
         };
         reader.readAsDataURL(file);
-        
+
     } else {
         // Masquer les informations et désactiver le bouton
         if (fileInfo) fileInfo.style.display = 'none';
@@ -159,7 +149,7 @@ function previewHeroImage(input) {
             uploadBtn.textContent = 'Uploader';
             uploadBtn.style.opacity = '0.5';
         }
-        
+
         // Restaurer l'image originale si elle existe
         if (heroPreview) {
             heroPreview.style.opacity = '1';
@@ -174,20 +164,17 @@ document.addEventListener('DOMContentLoaded', function() {
         heroForm.addEventListener('submit', function(e) {
             const uploadBtn = document.getElementById('uploadBtn');
             const fileInput = document.getElementById('hero_file');
-            
             // Vérifier qu'un fichier est sélectionné
             if (!fileInput.files || fileInput.files.length === 0) {
                 e.preventDefault();
                 alert('Veuillez sélectionner une image avant d\'uploader.');
                 return false;
             }
-            
             if (uploadBtn) {
                 uploadBtn.textContent = 'Upload en cours...';
                 uploadBtn.disabled = true;
                 uploadBtn.classList.add('uploading');
             }
-            
             // Ajouter timestamp pour forcer le rafraîchissement de l'image
             const currentImg = document.getElementById('heroPreview');
             if (currentImg) {
@@ -196,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const baseUrl = currentImg.src.split('?')[0];
                     const newTimestamp = Date.now();
                     currentImg.src = baseUrl + '?v=' + newTimestamp;
-                    
                     // Rafraîchissement global optimisé
                     refreshAllImages();
                     aggressiveCacheClear();
@@ -209,14 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ================================
 // FONCTION DE RAFRAÎCHISSEMENT GLOBAL
 // ================================
-
-/**
- * Rafraîchir toutes les images avec cache busting (optimisé)
- */
 function refreshAllImages() {
     const timestamp = Date.now();
-    
-    // Rafraîchir seulement les images assets/ importantes
     document.querySelectorAll('img[src*="assets/hero/"], img[src*="assets/gallery/"]').forEach(img => {
         const baseUrl = img.src.split('?')[0];
         img.src = baseUrl + '?v=' + timestamp;
@@ -225,7 +205,27 @@ function refreshAllImages() {
 
 /**
  * Vider le cache du navigateur de manière agressive (optimisé)
+ * Utilisé après upload pour forcer le rechargement des images hero.
  */
+function aggressiveCacheClear() {
+    // Modifier seulement les images hero pour forcer le rechargement
+    const images = document.querySelectorAll('img[src*="assets/hero/"]');
+    images.forEach(img => {
+        const originalSrc = img.src;
+        img.src = '';
+        setTimeout(() => {
+            img.src = originalSrc.split('?')[0] + '?v=' + Date.now();
+        }, 50);
+    });
+}
+
+// ================================
+// DIAGNOSTIC HERO UPLOAD (SIMPLIFIÉ)
+// ================================
+
+// Diagnostic simplifié - pas de requêtes AJAX qui surchargent
+// Vider le cache du navigateur de manière agressive (optimisé)
+//  */
 function aggressiveCacheClear() {
     // Modifier seulement les images hero pour forcer le rechargement
     const images = document.querySelectorAll('img[src*="assets/hero/"]');

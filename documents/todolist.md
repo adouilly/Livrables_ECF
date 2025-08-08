@@ -9,6 +9,7 @@
 - Vérifier et optimiser la structure du projet selon les besoins et les consignes.
 - S'assurer que la simplification ne casse aucune fonctionnalité ou design.
 - Maintenir un code propre et professionnel.
+- **Nettoyer le code mort, les doublons, les surcouches et mettre à jour les commentaires dans tous les fichiers.**
 
 ## 2. Base de Données (BDD) & Documentation
 
@@ -33,7 +34,11 @@
 - Réactiver les sécurités désactivées temporairement.
 - Supprimer tous les `console.log` et autres informations de debug visibles en front ou dans la console.
 
-## 5. Versions Futures
+## 5. Derniere couche de design
+- Utiliser le fichier : CANVA_EFFECT.md pour mettre en place la dernière couche de design.
+- Design et effet dynamique.
+
+## 6. Versions Futures
 
 ### V2 : Mise en place du MVC
 

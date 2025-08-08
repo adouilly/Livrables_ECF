@@ -9,14 +9,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const burgerBtn = document.getElementById('burger-btn');
     const burgerContainer = document.getElementById('burger-container');
     const mainNav = document.getElementById('main-nav');
-    
+
     // Variables d'état
     let isMenuOpen = false;
     let tondeuseAnimationCompleted = false; // Nouvelle variable pour tracker l'animation
-    
+
+    // Désactiver le menu hamburger sur la page mentions légales
+    const isLegalPage = document.body.classList.contains('page-mentions-legales');
+
     // === INITIALISATION ===
     initializeHeader();
-    setupEventListeners();
+    if (!isLegalPage) {
+        setupEventListeners();
+    } else {
+        // Masquer le burger et la navigation sur cette page
+        if (burgerContainer) burgerContainer.style.display = 'none';
+        if (mainNav) mainNav.style.display = 'none';
+    }
     
     /* ========================================
        INITIALISATION DU HEADER
